@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UJPA École Professionnelle</title>
+
+    <meta name="description"
+          content="UJPA École Professionnelle : des formations concrètes pour les métiers d'avenir.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #172554;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #102c62;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #f4c542;
+        }
+
+        header p {
+            margin-top: 5px;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 14px;
+            text-align: center;
+            border-bottom: 3px solid #f4c542;
+        }
+
+        nav a {
+            color: #102c62;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #102c62, #1d4e89);
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .hero h1 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            font-size: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f4c542;
+            color: #102c62;
+            padding: 13px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 45px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #102c62;
+        }
+
+        .about {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .formations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #f4c542;
+        }
+
+        .card h3 {
+            color: #102c62;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            text-align: center;
+            background: #e8eef8;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: #102c62;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        footer strong {
+            color: #f4c542;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">UJPA</div>
+        <h2 style="color: white; margin: 5px 0;">
+            ÉCOLE PROFESSIONNELLE
+        </h2>
+        <p>Pour chaque jeune, un avenir.</p>
+    </header>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#formations">Formations</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <div class="hero" id="accueil">
+            <h1>Construisez votre avenir avec UJPA</h1>
+
+            <p>
+                Découvrez des formations professionnelles axées sur la pratique,
+                le développement des compétences et l'entrepreneuriat.
+            </p>
+
+            <a href="#formations" class="btn">
+                Découvrir nos formations
+            </a>
+        </div>
+
+        <section id="apropos">
+            <h2>Bienvenue à UJPA École Professionnelle</h2>
+
+            <div class="about">
+                <p>
+                    Notre objectif est d'aider les jeunes à développer leur
+                    potentiel grâce à des formations pratiques et à un
+                    accompagnement adapté aux réalités du marché du travail.
+                </p>
+
+                <p>
+                    Nous voulons contribuer à former des professionnels
+                    compétents, autonomes et capables de créer des opportunités.
+                </p>
+            </div>
+        </section>
+
+        <section id="formations">
+            <h2>Nos formations professionnelles</h2>
+
+            <div class="formations">
+                <article class="card">
+                    <h3>Cosmétologie moderne</h3>
+                    <p>Développez vos compétences dans les soins et la beauté.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Sérigraphie</h3>
+                    <p>Apprenez les techniques d'impression sur différents supports.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Artisanat</h3>
+                    <p>Développez votre créativité et vos compétences manuelles.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Résine époxy</h3>
+                    <p>Découvrez la création d'objets décoratifs en résine.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Onglerie</h3>
+                    <p>Apprenez les techniques professionnelles de soin des ongles.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Maquillage</h3>
+                    <p>Développez vos compétences en maquillage professionnel.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Tresse africaine</h3>
+                    <p>Apprenez différentes techniques de coiffure et de tressage.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Entrepreneuriat</h3>
+                    <p>Apprenez les bases pour concevoir et gérer une entreprise.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Crochet</h3>
+                    <p>Développez votre savoir-faire dans les créations au crochet.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contactez-nous</h2>
+
+            <p><strong>UJPA École Professionnelle</strong></p>
+            <p>Cap-Haïtien, Rue 17 N.O.</p>
+            <p>Pour chaque jeune, un avenir.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            &copy; <span id="annee"></span>
+            <strong>UJPA École Professionnelle</strong>.
+            Tous droits réservés.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("annee").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+  </html>
