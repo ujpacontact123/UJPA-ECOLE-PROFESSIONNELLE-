@@ -299,15 +299,18 @@
                 }
             );
 
-            if (!reponse.ok) {
-                throw new Error("Impossible de charger les formations.");
-            }
+        if (!reponse.ok) {
+    const details = await reponse.text();
+    throw new Error(
+        `Erreur HTTP ${reponse.status}: ${details}`
+    );
+        }
 
             const formations = await reponse.json();
             liste.replaceChildren();
 
             if (formations.length === 0) {
-                message.textContent = "Aucune formation disponible pour le moment.";
+            message.textContent = erreur.message;
                 return;
             }
 
