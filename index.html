@@ -278,8 +278,72 @@
     </footer>
 
     <script>
-        document.getElementById("annee").textContent =
-            new Date().getFullYear();
+    document.getElementById("annee").textContent =
+        new Date().getFullYear();
+
+    const SUPABASE_URL = "METE_PROJECT_URL_LA_ISIT";
+    const SUPABASE_KEY = "METE_PUBLISHABLE_KEY_LA_ISIT";
+
+    async function chargerFormations() {
+        const liste = document.getElementById("liste-formations");
+        const message = document.getElementById("message-formations");
+
+        try {
+            const reponse = await fetch(
+                `${SUPABASE_URL}/rest/v1/formations?select=id,nom,description&actif=eq.true&order=nom.asc`,
+                {
+                    headers: {
+                        "apikey": SUPABASE_KEY,
+                        "Authorization": `Bearer ${SUPABASE_KEY}`
+                    }
+                }
+            );
+
+            if (!reponse.ok) {
+                throw new Error("Impossible de charger les formations.");
+            }
+
+            const formations = await reponse.json();
+            liste.replaceChildren();
+
+            if (formations.length === 0) {
+                message.textContent = "Aucune formation disponible pour le moment.";
+                return;
+            }
+
+            formations.forEach((formation) => {
+                const carte = document.createElement("article");
+                carte.className = "card";
+
+                const titre = document.createElement("h3");
+                titre.textContent = formation.nom;
+
+                const description = document.createElement("p");
+                description.textContent =
+                    formation.description || "Découvrez cette formation professionnelle.";
+
+                carte.append(titre, description);
+                liste.appendChild(carte);
+            });
+
+            message.textContent = "";
+
+        } catch (erreur) {
+            console.error(erreur);
+            liste.replaceChildren();
+
+            const texte = document.createElement("p");
+            texte.textContent =
+                "Les formations ne sont pas disponibles pour le moment.";
+
+            liste.appendChild(texte);
+            message.textContent =
+                "Veuillez réessayer plus tard.";
+        }
+    }
+
+    chargerFormations();
+                                                </script>
     </script>
 
 </body>
