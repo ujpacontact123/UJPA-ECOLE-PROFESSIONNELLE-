@@ -336,12 +336,15 @@
             liste.replaceChildren();
 
             const texte = document.createElement("p");
-            texte.textContent =
-                "Les formations ne sont pas disponibles pour le moment.";
+            if (!reponse.ok) {
+    const details = await reponse.text();
+    throw new Error(
+        `Erreur HTTP ${reponse.status}: ${details}`
+    );
+        }
 
             liste.appendChild(texte);
-            message.textContent =
-                "Veuillez réessayer plus tard.";
+            message.textContent = erreur.message;
         }
     }
 
