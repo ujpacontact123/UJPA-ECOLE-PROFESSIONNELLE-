@@ -256,9 +256,11 @@
             const formations = await reponse.json();
             liste.replaceChildren();
 
-            if (formations.length === 0) {
-            message.textContent = erreur.message;
-                return;
+        if (formations.length === 0) {
+    message.textContent =
+        "Aucune formation disponible pour le moment.";
+    return;
+        }
             }
 
             formations.forEach((formation) => {
