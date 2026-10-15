@@ -251,52 +251,47 @@
     throw new Error(
         `Erreur HTTP ${reponse.status}: ${details}`
     );
-        }
+}
 
-            const formations = await reponse.json();
-            liste.replaceChildren();
+const formations = await reponse.json();
+liste.replaceChildren();
 
-        if (formations.length === 0) {
+if (formations.length === 0) {
     message.textContent =
         "Aucune formation disponible pour le moment.";
     return;
+}
+
+formations.forEach((formation) => {
+    const carte = document.createElement("article");
+    carte.className = "card";
+
+    const titre = document.createElement("h3");
+    titre.textContent = formation.nom;
+
+    const description = document.createElement("p");
+    description.textContent =
+        formation.description ||
+        "Découvrez cette formation professionnelle.";
+
+    carte.append(titre, description);
+    liste.appendChild(carte);
+});
+
+message.textContent = "";
+
+} catch (erreur) {
+    console.error("Erreur de chargement :", erreur);
+    liste.replaceChildren();
+
+    const texte = document.createElement("p");
+    texte.textContent =
+        "Les formations ne sont pas disponibles pour le moment.";
+
+    liste.appendChild(texte);
+    message.textContent = erreur.message;
+}
         }
-            }
-
-            formations.forEach((formation) => {
-                const carte = document.createElement("article");
-                carte.className = "card";
-
-                const titre = document.createElement("h3");
-                titre.textContent = formation.nom;
-
-                const description = document.createElement("p");
-                description.textContent =
-                    formation.description || "Découvrez cette formation professionnelle.";
-
-                carte.append(titre, description);
-                liste.appendChild(carte);
-            });
-
-            message.textContent = "";
-
-        } catch (erreur) {
-            console.error(erreur);
-            liste.replaceChildren();
-
-            const texte = document.createElement("p");
-            if (!reponse.ok) {
-    const details = await reponse.text();
-    throw new Error(
-        `Erreur HTTP ${reponse.status}: ${details}`
-    );
-        }
-
-            liste.appendChild(texte);
-            message.textContent = erreur.message;
-        }
-    }
-
     chargerFormations();
                                                 </script>
     </script>
