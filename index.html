@@ -403,5 +403,67 @@ message.textContent = "";
 
     </form>
     </section>
+                <script>
+const formulaire = document.getElementById("formulaire-inscription");
+const message = document.getElementById("message-inscription");
+
+formulaire.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const bouton = formulaire.querySelector('button[type="submit"]');
+
+    bouton.disabled = true;
+    bouton.textContent = "Envoi en cours...";
+    message.textContent = "Veuillez patienter...";
+
+    const donnees = {
+        nom_complet: document.getElementById("nom_complet").value.trim(),
+        telephone: document.getElementById("telephone").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        ville: document.getElementById("ville").value.trim(),
+        date_naissance: document.getElementById("date_naissance").value,
+        formation: document.getElementById("formation").value
+    };
+
+    try {
+        const reponse = await fetch(
+            "https://wojypmfsfvhhjeorynls.supabase.co/functions/v1/dynamic-task",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(donnees)
+            }
+        );
+
+        const resultat = await reponse.json();
+
+        if (!reponse.ok) {
+            throw new Error(
+                resultat.error || "Impossible d'envoyer l'inscription."
+            );
+        }
+
+        message.textContent =
+            "Votre demande a été envoyée avec succès !";
+
+        message.style.color = "green";
+        formulaire.reset();
+
+    } catch (erreur) {
+        console.error("Erreur d'inscription :", erreur);
+
+        message.textContent =
+            "L'inscription n'a pas pu être confirmée. Veuillez réessayer.";
+
+        message.style.color = "red";
+
+    } finally {
+        bouton.disabled = false;
+        bouton.textContent = "Soumettre mon inscription";
+    }
+});
+                </script>
 </body>
   </html>
