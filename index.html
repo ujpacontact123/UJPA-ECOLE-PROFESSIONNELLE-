@@ -431,7 +431,9 @@ formulaire.addEventListener("submit", async function(event) {
             {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization": "Bearer .eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndvanlwbWZzZnZoaGplb3J5bmxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE4NjAzODUsImV4cCI6MjEwNzQzNjM4NX0.tHuD3MrLyqG_p033ZsRr6EmsVnOcgjHUCcbfJqDwFGg"
+},
                 },
                 body: JSON.stringify(donnees)
             }
